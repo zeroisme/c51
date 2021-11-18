@@ -1,1 +1,1 @@
-# 51单片机学习源码, 使用sdcc + makefile
+# 51单片机学习源码, 使用sdcc + makefile, 开发版使用的是普中-2
