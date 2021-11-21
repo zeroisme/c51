@@ -15,7 +15,7 @@ __sfr __at (0x80) lcd1602_sent_dat;
 #define _nop_() __asm NOP __endasm
 
 void delay80us() {
-    unsigned char i = 0;
+    unsigned char i;
 
     _nop_();
     i = 37;
@@ -23,8 +23,6 @@ void delay80us() {
 }
 
 void lcd1602_write_dat(unsigned char dat) {
-    char i;
-
     lcd1602_sent_dat = dat;
     lcd1602_dat;
     lcd1602_write;
@@ -39,7 +37,6 @@ void lcd1602_write_dat(unsigned char dat) {
 }
 
 void lcd1602_write_com(unsigned char com) {
-    char i;
     lcd1602_sent_dat = com;
     lcd1602_com;
     lcd1602_write;
@@ -51,7 +48,6 @@ void lcd1602_write_com(unsigned char com) {
 }
 
 void lcd1602_init(void) {
-    char i;
     lcd1602_write_com(0x38); // 设置8位格式， 2行， 5x7
     lcd1602_write_com(0x0c); // 整体显示，关光标，不闪烁
     lcd1602_write_com(0x06); // 设定输入方式，增量不移位

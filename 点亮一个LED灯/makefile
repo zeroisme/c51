@@ -8,11 +8,11 @@ upload_port = /dev/ttyUSB0
 SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c, %.rel, $(SRC))
 
-main.rel: main.c
-	$(CC) -c $<
+%.rel: %.c
+	$(CC) -c $< -o $@
 
-main.hex: main.rel
-	$(CC) $(OBJ) -o main.hex
+main.hex: $(OBJ)
+	$(CC) $(OBJ) -o $@
 
 upload: main.hex
 	@echo "开始烧录程序......"
