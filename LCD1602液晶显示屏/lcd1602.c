@@ -52,9 +52,6 @@ void lcd1602_write_com(unsigned char com) {
 
 void lcd1602_init(void) {
     char i;
-    for(i=0;i<80;i++) {
-        _nop_();
-    }
     lcd1602_write_com(0x38); // 设置8位格式， 2行， 5x7
     lcd1602_write_com(0x0c); // 整体显示，关光标，不闪烁
     lcd1602_write_com(0x06); // 设定输入方式，增量不移位
