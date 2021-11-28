@@ -25,7 +25,7 @@ void timer0_routine() __interrupt 1 {
     count++;
     TH0 = 0xFC;
     TL0 = 0x18;
-    // 1ms
+    // 0.5ms
     if (count >= 500) {
         count = 0;
         if (led_mod == 0) {
