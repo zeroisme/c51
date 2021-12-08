@@ -65,6 +65,7 @@ uint8_t ds1302_read(uint8_t address) {
     write_byte(address);
     dat = read_byte();
     DS1302_CE = 0;
+    // 只有加了下面这个才正常工作（不知道什么原因）
     DS1302_IO = 0;
 
     return dat;
